@@ -4,15 +4,18 @@ local defaults = {}
 local config = {}
 
 function M.setup() --opts
-  print("hello")
+  --print("hello")
     --config = vim.tbl_deep_extend("force", defaults, opts or {})
+---- Register REPL commands
+vim.api.nvim_create_user_command('Steel', create_repl("steel", "Steel"), {})
+vim.api.nvim_create_user_command('Raa', create_repl("rust-ai-assistant", "ai"), {})
 end
 --
 function M.test()
   print("hello from the plugin")
 end
 
-local function create_repl(command, name)
+function create_repl(command, name)
     return function()
         -- Create new split
         --vim.api.nvim_command("vsplit")
@@ -32,8 +35,5 @@ local function create_repl(command, name)
     end
 end
 --
----- Register REPL commands
-vim.api.nvim_create_user_command('Steel', create_repl("steel", "Steel"), {})
-vim.api.nvim_create_user_command('Raa', create_repl("rust-ai-assistant", "ai"), {})
 
 return M
