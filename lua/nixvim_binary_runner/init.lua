@@ -9,6 +9,7 @@ function M.setup() --opts
 ---- Register REPL commands
 vim.api.nvim_create_user_command('Steel', create_repl("steel", "Steel"), {})
 vim.api.nvim_create_user_command('Raa', create_repl("rust-ai-assistant", "ai"), {})
+  print("setup ran")
 end
 --
 function M.test()
